@@ -7,3 +7,12 @@ cache: pip
 
 install: "pip install sphinx~=1.5.3"
 script: sphinx-build -nWT -b html source/ build/
+
+deploy:
+  provider: pages
+  skip-cleanup: true
+  github-token: $GITHUB_TOKEN
+  keep-history: true
+  local-dir: build
+  on:
+    branch: master
