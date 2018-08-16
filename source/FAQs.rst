@@ -11,10 +11,11 @@ branch and hosted by github. You can add and edit the documentation by comitting
 Where are the repos?
 ==
 * ohs18badge
- * PCB and Schemaics for the badge
+  * PCB and Schemaics for the badge
+ 
 * oshwabadge2018.github.io
- * Sphynx docs
+  * Sphynx docs
 * ProgrammingJig
- * Badge Programming Jig
+   * Badge Programming Jig
 * ohs2018-badge-firmware
- * Badge Firmware and toolchain
+   * Badge Firmware and toolchain
