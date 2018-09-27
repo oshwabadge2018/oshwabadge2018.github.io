@@ -88,6 +88,7 @@ Micropython Examples
 Uploading over FTP
 +++++++++++++++++++
 Here is an example of uploading a file using ftp on linux::
+
 	ftp> connect 192.168.4.1
 	?Invalid command
 	ftp> open 192.168.4.1
@@ -114,6 +115,7 @@ Accelerometer Example
 The datasheet for the accelerometer can be `found here <http://www.farnell.com/datasheets/2189770.pdf>`_
 
 Here is Accelerometer sample code::
+
 	import machine
 	import struct
 
@@ -145,6 +147,7 @@ Here is an example of updating the display. there are two init functions for par
 	epd.display_string_at(fb, 0, 44, "IP ADDR = " + ipaddr, font12, gxgde0213b1.COLORED)
 
 You can use a 24 point variable width font rendering::
+
 	import G_FreeSans24pt7b
 	
 	epd.G_display_string_at(fb,0,0,"Hello World",G_FreeSans24pt7b,1,gxgde0213b1.COLORED)
