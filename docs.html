@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Welcome to oshwabadge2018’s documentation! &mdash; oshwabadge2018  documentation</title>
+  <title>Getting Started &mdash; oshwabadge2018  documentation</title>
   
 
   
@@ -78,8 +78,29 @@
             
               <!-- Local TOC -->
               <div class="local-toc"><ul>
-<li><a class="reference internal" href="#">Welcome to oshwabadge2018&#8217;s documentation!</a></li>
-<li><a class="reference internal" href="#indices-and-tables">Indices and tables</a></li>
+<li><a class="reference internal" href="#">Getting Started</a><ul>
+<li><a class="reference internal" href="#the-apps-menu">The Apps Menu</a><ul>
+<li><a class="reference internal" href="#change-name">Change Name</a></li>
+<li><a class="reference internal" href="#start-ftp-server">Start FTP Server</a></li>
+<li><a class="reference internal" href="#serial-repl">Serial REPL</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#shitty-addons">Shitty Addons</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#badge-development">Badge Development</a><ul>
+<li><a class="reference internal" href="#building-and-flashing">Building and Flashing</a><ul>
+<li><a class="reference internal" href="#compiling-firmware-from-scratch">Compiling firmware from scratch</a></li>
+<li><a class="reference internal" href="#flashing-your-module">Flashing Your Module</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#hacking-the-hardware">Hacking the hardware</a><ul>
+<li><a class="reference internal" href="#accessing-the-kicad-pcb-design">Accessing the KiCad PCB design</a></li>
+<li><a class="reference internal" href="#pre-generated-schematics">Pre-Generated Schematics</a></li>
+</ul>
+</li>
+</ul>
+</li>
 </ul>
 </div>
             
@@ -125,7 +146,7 @@
     
       <li><a href="#">Docs</a> &raquo;</li>
         
-      <li>Welcome to oshwabadge2018&#8217;s documentation!</li>
+      <li>Getting Started</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -144,19 +165,79 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="welcome-to-oshwabadge2018-s-documentation">
-<h1>Welcome to oshwabadge2018&#8217;s documentation!<a class="headerlink" href="#welcome-to-oshwabadge2018-s-documentation" title="Permalink to this headline">¶</a></h1>
-<p>Hello World. Testing Autobuild!</p>
-<div class="toctree-wrapper compound">
-</div>
-</div>
-<div class="section" id="indices-and-tables">
-<h1>Indices and tables<a class="headerlink" href="#indices-and-tables" title="Permalink to this headline">¶</a></h1>
-<ul class="simple">
-<li><a class="reference internal" href="genindex.html"><span class="std std-ref">Index</span></a></li>
-<li><a class="reference internal" href="py-modindex.html"><span class="std std-ref">Module Index</span></a></li>
-<li><a class="reference internal" href="search.html"><span class="std std-ref">Search Page</span></a></li>
+  <div class="section" id="getting-started">
+<h1>Getting Started<a class="headerlink" href="#getting-started" title="Permalink to this headline">¶</a></h1>
+<p>Your badge is based on an ESP32-wroom-32 module and a GDEH0213B1 e-paper display. It also contains a KX122-1037 Accelerometer and a footprint for a microsd card that can be soldered on as a soldering exercise.</p>
+<p>If your badge has your name on it it&#8217;s been pre-configured already. If no name has been set the badge will display the OHS logo.</p>
+<div class="section" id="the-apps-menu">
+<h2>The Apps Menu<a class="headerlink" href="#the-apps-menu" title="Permalink to this headline">¶</a></h2>
+<p>Your badge can run python scripts found in it&#8217;s &#8216;apps&#8217; directory. Clicking the Apps icon takes you to a menu where you can select the script you want to run.</p>
+<p>Notice that the first 3 scripts do not end in &#8216;.py&#8217;.  These are built in features of your module.</p>
+<blockquote>
+<div><ul class="simple">
+<li>Change Name</li>
+<li>Start FTP Server</li>
+<li>Serial REPL</li>
 </ul>
+</div></blockquote>
+<div class="section" id="change-name">
+<h3>Change Name<a class="headerlink" href="#change-name" title="Permalink to this headline">¶</a></h3>
+<p>This option will cause the badge to create an access point named &#8216;ohsbadge-80:7d:3a:xx:xx:xx&#8217; where the last 6 digits will be specific to your badge. This access-point name and an auto-generated password will be printed to the screen. IF you visit the url &#8216;http://192.168.4.1/setup&#8217; after connecting to the access-point you will be taken to a form where you can change the displayed name.</p>
+</div>
+<div class="section" id="start-ftp-server">
+<h3>Start FTP Server<a class="headerlink" href="#start-ftp-server" title="Permalink to this headline">¶</a></h3>
+<p>This option will also cause the badge to create an access-point but instead of launching a webserver the badge will start a FTP server. You can connect to this FTP server from your device and add/remove scripts. Any script placed in the apps directory will come up in the apps menu.</p>
+</div>
+<div class="section" id="serial-repl">
+<h3>Serial REPL<a class="headerlink" href="#serial-repl" title="Permalink to this headline">¶</a></h3>
+<p>This option will launch a python console that can be accessed over the serial port headers (J1)</p>
+</div>
+</div>
+<div class="section" id="shitty-addons">
+<h2>Shitty Addons<a class="headerlink" href="#shitty-addons" title="Permalink to this headline">¶</a></h2>
+<p>Your badge has a <a class="reference external" href="https://hackaday.com/2018/06/21/this-is-the-year-conference-badges-get-their-own-badges/shitty-add-on-standard/">Shitty Addon Connector</a> that breaks out 3.3v, ground, sda, and scl. for the addition of all sorts of hats and addons.</p>
+</div>
+</div>
+<div class="section" id="badge-development">
+<h1>Badge Development<a class="headerlink" href="#badge-development" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="building-and-flashing">
+<h2>Building and Flashing<a class="headerlink" href="#building-and-flashing" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="compiling-firmware-from-scratch">
+<h3>Compiling firmware from scratch<a class="headerlink" href="#compiling-firmware-from-scratch" title="Permalink to this headline">¶</a></h3>
+<p>Run the following lines on an ubuntu 16.04 or newer linux install.:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">apt</span><span class="o">-</span><span class="n">get</span> <span class="n">install</span> <span class="n">git</span> <span class="n">wget</span> <span class="n">make</span> <span class="n">libncurses</span><span class="o">-</span><span class="n">dev</span> <span class="n">flex</span> <span class="n">bison</span> <span class="n">gperf</span> <span class="n">python</span> <span class="n">python</span><span class="o">-</span><span class="n">serial</span>
+<span class="n">git</span> <span class="n">clone</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">oshwabadge2018</span><span class="o">/</span><span class="n">ohs2018</span><span class="o">-</span><span class="n">badge</span><span class="o">-</span><span class="n">firmware</span><span class="o">.</span><span class="n">git</span>
+<span class="n">cd</span> <span class="n">ohs2018</span><span class="o">-</span><span class="n">badge</span><span class="o">-</span><span class="n">firmware</span>
+<span class="n">bash</span> <span class="n">scripts</span><span class="o">/</span><span class="n">build</span><span class="o">.</span><span class="n">sh</span>
+</pre></div>
+</div>
+<p>Your firmware will be built in &#8216;micropython/ports/esp32/&#8217;</p>
+</div>
+<div class="section" id="flashing-your-module">
+<h3>Flashing Your Module<a class="headerlink" href="#flashing-your-module" title="Permalink to this headline">¶</a></h3>
+<p>Flashing without the programming jig can be a bit annoying.</p>
+<blockquote>
+<div><ul class="simple">
+<li>Short en0 to GND</li>
+<li>while en0 is shorted short RST to ground</li>
+<li>while en0 is still shorted to GND release RST and wait 3 seconds</li>
+<li>connect your serial cable to rx and tx</li>
+<li>in the &#8216;micropython/ports/esp32/&#8217; directory run &#8216;make deploy&#8217;</li>
+</ul>
+</div></blockquote>
+</div>
+</div>
+<div class="section" id="hacking-the-hardware">
+<h2>Hacking the hardware<a class="headerlink" href="#hacking-the-hardware" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="accessing-the-kicad-pcb-design">
+<h3>Accessing the KiCad PCB design<a class="headerlink" href="#accessing-the-kicad-pcb-design" title="Permalink to this headline">¶</a></h3>
+<p>The board was made in kicad and is <a class="reference external" href="https://github.com/oshwabadge2018/ohs18badge">available on github</a>.</p>
+</div>
+<div class="section" id="pre-generated-schematics">
+<h3>Pre-Generated Schematics<a class="headerlink" href="#pre-generated-schematics" title="Permalink to this headline">¶</a></h3>
+<p>These are also hosted on github and <a class="reference external" href="https://github.com/oshwabadge2018/ohs18badge/blob/607e4ca405daa215bd4eab3f1ffea525b4532651/badge-rev4.pdf">can be found here</a></p>
+</div>
+</div>
 </div>
 
 
