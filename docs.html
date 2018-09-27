@@ -249,25 +249,21 @@
 <div class="section" id="uploading-over-ftp">
 <h3>Uploading over FTP<a class="headerlink" href="#uploading-over-ftp" title="Permalink to this headline">¶</a></h3>
 <p>Here is an example of uploading a file using ftp on linux:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span>ftp&gt; connect 192.168.4.1
-?Invalid command
-ftp&gt; open 192.168.4.1
-Connected to 192.168.4.1.
-220 Hello, this is the ESP8266.
-Name (192.168.4.1:avcamilo):
-230 Logged in.
-Remote system type is UNIX.
-Using binary mode to transfer files.
-ftp&gt; git put ~/accel.py /apps/accel.py
-?Invalid command
-ftp&gt; put ~/accel.py /apps/accel.py
-local: /home/avcamilo/accel.py remote: /apps/accel.py
-200 OK
-150 Opened data connection.
-226 Done.
-1006 bytes sent in 0.00 secs (13.7057 MB/s)
-ftp&gt; exit
-221 Bye.
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">ftp</span><span class="o">&gt;</span> <span class="nb">open</span> <span class="mf">192.168</span><span class="o">.</span><span class="mf">4.1</span>
+<span class="n">Connected</span> <span class="n">to</span> <span class="mf">192.168</span><span class="o">.</span><span class="mf">4.1</span><span class="o">.</span>
+<span class="mi">220</span> <span class="n">Hello</span><span class="p">,</span> <span class="n">this</span> <span class="ow">is</span> <span class="n">the</span> <span class="n">ESP8266</span><span class="o">.</span>
+<span class="n">Name</span> <span class="p">(</span><span class="mf">192.168</span><span class="o">.</span><span class="mf">4.1</span><span class="p">:</span><span class="n">avcamilo</span><span class="p">):</span>
+<span class="mi">230</span> <span class="n">Logged</span> <span class="ow">in</span><span class="o">.</span>
+<span class="n">Remote</span> <span class="n">system</span> <span class="nb">type</span> <span class="ow">is</span> <span class="n">UNIX</span><span class="o">.</span>
+<span class="n">Using</span> <span class="n">binary</span> <span class="n">mode</span> <span class="n">to</span> <span class="n">transfer</span> <span class="n">files</span><span class="o">.</span>
+<span class="n">ftp</span><span class="o">&gt;</span> <span class="n">put</span> <span class="o">~/</span><span class="n">accel</span><span class="o">.</span><span class="n">py</span> <span class="o">/</span><span class="n">apps</span><span class="o">/</span><span class="n">accel</span><span class="o">.</span><span class="n">py</span>
+<span class="n">local</span><span class="p">:</span> <span class="o">/</span><span class="n">home</span><span class="o">/</span><span class="n">avcamilo</span><span class="o">/</span><span class="n">accel</span><span class="o">.</span><span class="n">py</span> <span class="n">remote</span><span class="p">:</span> <span class="o">/</span><span class="n">apps</span><span class="o">/</span><span class="n">accel</span><span class="o">.</span><span class="n">py</span>
+<span class="mi">200</span> <span class="n">OK</span>
+<span class="mi">150</span> <span class="n">Opened</span> <span class="n">data</span> <span class="n">connection</span><span class="o">.</span>
+<span class="mi">226</span> <span class="n">Done</span><span class="o">.</span>
+<span class="mi">1006</span> <span class="nb">bytes</span> <span class="n">sent</span> <span class="ow">in</span> <span class="mf">0.00</span> <span class="n">secs</span> <span class="p">(</span><span class="mf">13.7057</span> <span class="n">MB</span><span class="o">/</span><span class="n">s</span><span class="p">)</span>
+<span class="n">ftp</span><span class="o">&gt;</span> <span class="n">exit</span>
+<span class="mi">221</span> <span class="n">Bye</span><span class="o">.</span>
 </pre></div>
 </div>
 </div>
