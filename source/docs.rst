@@ -111,6 +111,7 @@ Here is an example of uploading a file using ftp on linux::
 
 Accelerometer Example
 ++++++++++++++++++++++
+The datasheet for the accelerometer can be `found here <http://www.farnell.com/datasheets/2189770.pdf>`_
 
 Here is Accelerometer sample code::
 	import machine
