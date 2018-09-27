@@ -89,8 +89,6 @@ Uploading over FTP
 +++++++++++++++++++
 Here is an example of uploading a file using ftp on linux::
 
-	ftp> connect 192.168.4.1
-	?Invalid command
 	ftp> open 192.168.4.1
 	Connected to 192.168.4.1.
 	220 Hello, this is the ESP8266.
@@ -98,8 +96,6 @@ Here is an example of uploading a file using ftp on linux::
 	230 Logged in.
 	Remote system type is UNIX.
 	Using binary mode to transfer files.
-	ftp> git put ~/accel.py /apps/accel.py
-	?Invalid command
 	ftp> put ~/accel.py /apps/accel.py
 	local: /home/avcamilo/accel.py remote: /apps/accel.py
 	200 OK
