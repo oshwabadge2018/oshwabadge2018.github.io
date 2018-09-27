@@ -82,4 +82,70 @@ Pre-Generated Schematics
 These are also hosted on github and `can be found here <https://github.com/oshwabadge2018/ohs18badge/blob/607e4ca405daa215bd4eab3f1ffea525b4532651/badge-rev4.pdf>`_
  
 
+Micropython Examples
+-----------------------
+
+Uploading over FTP
++++++++++++++++++++
+Here is an example of uploading a file using ftp on linux::
+	ftp> connect 192.168.4.1
+	?Invalid command
+	ftp> open 192.168.4.1
+	Connected to 192.168.4.1.
+	220 Hello, this is the ESP8266.
+	Name (192.168.4.1:avcamilo): 
+	230 Logged in.
+	Remote system type is UNIX.
+	Using binary mode to transfer files.
+	ftp> git put ~/accel.py /apps/accel.py
+	?Invalid command
+	ftp> put ~/accel.py /apps/accel.py
+	local: /home/avcamilo/accel.py remote: /apps/accel.py
+	200 OK
+	150 Opened data connection.
+	226 Done.
+	1006 bytes sent in 0.00 secs (13.7057 MB/s)
+	ftp> exit
+	221 Bye.
+
+
+Accelerometer Example
+++++++++++++++++++++++
+The datasheet for the accelerometer can be `found here <http://www.farnell.com/datasheets/2189770.pdf>`_
+
+Here is Accelerometer sample code::
+	import machine
+	import struct
+
+  i2c = machine.I2C(scl=machine.Pin(22), sda=machine.Pin(21))
+  i2c.writeto_mem(30,0x18,b'\x80')
+
+  ACCX = struct.unpack("h",i2c.readfrom_mem(30,0x6,2))
+	ACCY = struct.unpack("h",i2c.readfrom_mem(30,0x8,2))
+	ACCZ = struct.unpack("h",i2c.readfrom_mem(30,0x10,2))
+
+	epd.display_frame(fb)
+
+
+E-paper Example
++++++++++++++++++++++++
+Here is an example of updating the display. there are two init functions for partial and full resfresh. Partial refresh updates the display quickly but leaves ghosting and full refresh takes longer but looks cleaner. Ignore the name COLORED, its actually black.::
+
+	from ohsbadge import epd
+	from ohsbadge import fb
+	import gxgde0213b1
+	import font16
+	import font12
+
+	epd.clear_frame(fb)
+	epd.set_rotate(gxgde0213b1.ROTATE_270)
+	epd.display_string_at(fb, 0, 0, "Welcome to OHS 2018!", font16, gxgde0213b1.COLORED)
+	epd.display_string_at(fb, 0, 20, "ESSID = " + essid, font12, gxgde0213b1.COLORED)
+	epd.display_string_at(fb, 0, 32, "PASSWORD = " + wifipass, font12, gxgde0213b1.COLORED)
+	epd.display_string_at(fb, 0, 44, "IP ADDR = " + ipaddr, font12, gxgde0213b1.COLORED)
+
+You can use a 24 point variable width font rendering::
+	import G_FreeSans24pt7b
+	
+	epd.G_display_string_at(fb,0,0,"Hello World",G_FreeSans24pt7b,1,gxgde0213b1.COLORED)
 

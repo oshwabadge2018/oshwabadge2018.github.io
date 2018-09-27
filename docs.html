@@ -99,6 +99,12 @@
 <li><a class="reference internal" href="#pre-generated-schematics">Pre-Generated Schematics</a></li>
 </ul>
 </li>
+<li><a class="reference internal" href="#micropython-examples">Micropython Examples</a><ul>
+<li><a class="reference internal" href="#uploading-over-ftp">Uploading over FTP</a></li>
+<li><a class="reference internal" href="#accelerometer-example">Accelerometer Example</a></li>
+<li><a class="reference internal" href="#e-paper-example">E-paper Example</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -236,6 +242,78 @@
 <div class="section" id="pre-generated-schematics">
 <h3>Pre-Generated Schematics<a class="headerlink" href="#pre-generated-schematics" title="Permalink to this headline">¶</a></h3>
 <p>These are also hosted on github and <a class="reference external" href="https://github.com/oshwabadge2018/ohs18badge/blob/607e4ca405daa215bd4eab3f1ffea525b4532651/badge-rev4.pdf">can be found here</a></p>
+</div>
+</div>
+<div class="section" id="micropython-examples">
+<h2>Micropython Examples<a class="headerlink" href="#micropython-examples" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="uploading-over-ftp">
+<h3>Uploading over FTP<a class="headerlink" href="#uploading-over-ftp" title="Permalink to this headline">¶</a></h3>
+<dl class="docutils">
+<dt>Here is an example of uploading a file using ftp on linux::</dt>
+<dd>ftp&gt; connect 192.168.4.1
+?Invalid command
+ftp&gt; open 192.168.4.1
+Connected to 192.168.4.1.
+220 Hello, this is the ESP8266.
+Name (192.168.4.1:avcamilo):
+230 Logged in.
+Remote system type is UNIX.
+Using binary mode to transfer files.
+ftp&gt; git put ~/accel.py /apps/accel.py
+?Invalid command
+ftp&gt; put ~/accel.py /apps/accel.py
+local: /home/avcamilo/accel.py remote: /apps/accel.py
+200 OK
+150 Opened data connection.
+226 Done.
+1006 bytes sent in 0.00 secs (13.7057 MB/s)
+ftp&gt; exit
+221 Bye.</dd>
+</dl>
+</div>
+<div class="section" id="accelerometer-example">
+<h3>Accelerometer Example<a class="headerlink" href="#accelerometer-example" title="Permalink to this headline">¶</a></h3>
+<p>The datasheet for the accelerometer can be <a class="reference external" href="http://www.farnell.com/datasheets/2189770.pdf">found here</a></p>
+<dl class="docutils">
+<dt>Here is Accelerometer sample code::</dt>
+<dd><blockquote class="first">
+<div>import machine
+import struct</div></blockquote>
+<p>i2c = machine.I2C(scl=machine.Pin(22), sda=machine.Pin(21))
+i2c.writeto_mem(30,0x18,b&#8217;x80&#8217;)</p>
+<dl class="last docutils">
+<dt>ACCX = struct.unpack(&#8220;h&#8221;,i2c.readfrom_mem(30,0x6,2))</dt>
+<dd><p class="first">ACCY = struct.unpack(&#8220;h&#8221;,i2c.readfrom_mem(30,0x8,2))
+ACCZ = struct.unpack(&#8220;h&#8221;,i2c.readfrom_mem(30,0x10,2))</p>
+<p class="last">epd.display_frame(fb)</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</div>
+<div class="section" id="e-paper-example">
+<h3>E-paper Example<a class="headerlink" href="#e-paper-example" title="Permalink to this headline">¶</a></h3>
+<p>Here is an example of updating the display. there are two init functions for partial and full resfresh. Partial refresh updates the display quickly but leaves ghosting and full refresh takes longer but looks cleaner. Ignore the name COLORED, its actually black.:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">ohsbadge</span> <span class="k">import</span> <span class="n">epd</span>
+<span class="kn">from</span> <span class="nn">ohsbadge</span> <span class="k">import</span> <span class="n">fb</span>
+<span class="kn">import</span> <span class="nn">gxgde0213b1</span>
+<span class="kn">import</span> <span class="nn">font16</span>
+<span class="kn">import</span> <span class="nn">font12</span>
+
+<span class="n">epd</span><span class="o">.</span><span class="n">clear_frame</span><span class="p">(</span><span class="n">fb</span><span class="p">)</span>
+<span class="n">epd</span><span class="o">.</span><span class="n">set_rotate</span><span class="p">(</span><span class="n">gxgde0213b1</span><span class="o">.</span><span class="n">ROTATE_270</span><span class="p">)</span>
+<span class="n">epd</span><span class="o">.</span><span class="n">display_string_at</span><span class="p">(</span><span class="n">fb</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="s2">&quot;Welcome to OHS 2018!&quot;</span><span class="p">,</span> <span class="n">font16</span><span class="p">,</span> <span class="n">gxgde0213b1</span><span class="o">.</span><span class="n">COLORED</span><span class="p">)</span>
+<span class="n">epd</span><span class="o">.</span><span class="n">display_string_at</span><span class="p">(</span><span class="n">fb</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="s2">&quot;ESSID = &quot;</span> <span class="o">+</span> <span class="n">essid</span><span class="p">,</span> <span class="n">font12</span><span class="p">,</span> <span class="n">gxgde0213b1</span><span class="o">.</span><span class="n">COLORED</span><span class="p">)</span>
+<span class="n">epd</span><span class="o">.</span><span class="n">display_string_at</span><span class="p">(</span><span class="n">fb</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">32</span><span class="p">,</span> <span class="s2">&quot;PASSWORD = &quot;</span> <span class="o">+</span> <span class="n">wifipass</span><span class="p">,</span> <span class="n">font12</span><span class="p">,</span> <span class="n">gxgde0213b1</span><span class="o">.</span><span class="n">COLORED</span><span class="p">)</span>
+<span class="n">epd</span><span class="o">.</span><span class="n">display_string_at</span><span class="p">(</span><span class="n">fb</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">44</span><span class="p">,</span> <span class="s2">&quot;IP ADDR = &quot;</span> <span class="o">+</span> <span class="n">ipaddr</span><span class="p">,</span> <span class="n">font12</span><span class="p">,</span> <span class="n">gxgde0213b1</span><span class="o">.</span><span class="n">COLORED</span><span class="p">)</span>
+</pre></div>
+</div>
+<dl class="docutils">
+<dt>You can use a 24 point variable width font rendering::</dt>
+<dd><p class="first">import G_FreeSans24pt7b</p>
+<p class="last">epd.G_display_string_at(fb,0,0,&#8221;Hello World&#8221;,G_FreeSans24pt7b,1,gxgde0213b1.COLORED)</p>
+</dd>
+</dl>
 </div>
 </div>
 </div>
