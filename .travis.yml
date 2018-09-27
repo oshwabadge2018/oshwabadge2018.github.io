@@ -6,7 +6,7 @@ sudo: false
 cache: pip
 
 install: "pip install sphinx~=1.5.3 sphinx_rtd_theme"
-script: sphinx-build -nWT -b html source/ build/
+script: build.sh
 
 deploy:
   provider: pages
