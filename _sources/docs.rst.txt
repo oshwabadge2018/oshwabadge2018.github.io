@@ -149,4 +149,26 @@ You can use a 24 point variable width font rendering::
 	import G_FreeSans24pt7b
 	
 	epd.G_display_string_at(fb,0,0,"Hello World",G_FreeSans24pt7b,1,gxgde0213b1.COLORED)
+	
+Touchpads
++++++++++++++++++++++++++++++++++
+The board has 6 captouch buttons. They return an analog value that correlates with how much of your finger is on the switch.::
+
+	from machine import Pin, TouchPad
+	app = TouchPad(Pin(32))
+	card = TouchPad(Pin(33))
+	right = TouchPad(Pin(13))
+	left = TouchPad(Pin(14))
+	down = TouchPad(Pin(27))
+	up = TouchPad(Pin(12))
+	buttons = [up,down,left,right,app,card]
+	names = ['up','down','left','right’','app','card']
+	while True:
+	  print("\nButtons:\t",end="")
+	  time.sleep(0.5)
+	  i=0
+	  for b in buttons:
+	  print(names[i],b.read(),end="\t")
+	  i+=1
+
 
