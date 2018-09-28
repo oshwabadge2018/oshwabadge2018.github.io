@@ -207,20 +207,5 @@ Python Example::
 	  
 	  Bitmaps=b'\xFF\xFF\xFF\xFF\xFF\xFF\xFF\xFF\xFF\xFF\x76\x66\x66\x00\x0F\xFF\xFF\xF1\xFE\x3F\x
 	 
-Source C file::
-	const uint8_t FreeSans24pt7bBitmaps[] PROGMEM = {
-	0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0x76, 0x66,
-	0x66, 0x00, 0x0F, 0xFF, 0xFF, 0xF1, 0xFE, 0x3F, 0xC7, 0xF8, 0xFF, 0x1F,
-	0xE3, 0xFC, 0x7F, 0x8F, 0xF1, 0xEC, 0x19, 0x83, 0x30, 0x60, 0x00, 0x70,
-	[snip]	
-	const GFXglyph FreeSans24pt7bGlyphs[] PROGMEM = {
-	  {     0,   0,   0,  12,    0,    1 },   // 0x20 ' '
-	  {     0,   4,  34,  16,    6,  -33 },   // 0x21 '!'
-	  {    17,  11,  12,  16,    2,  -32 },   // 0x22 '"'
-	  {    34,  24,  33,  26,    1,  -31 },   // 0x23 '#'  
-	  [snip]
-	  const GFXfont FreeSans24pt7b PROGMEM = {
-	  (uint8_t  *)FreeSans24pt7bBitmaps,
-	  (GFXglyph *)FreeSans24pt7bGlyphs,
-	  0x20, 0x7E, 56 };
+`Source C file for comparison <https://github.com/adafruit/Adafruit-GFX-Library/blob/master/Fonts/FreeSans24pt7b.h>`_
 	  
