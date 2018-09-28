@@ -356,22 +356,21 @@
 <h3>Adding Custom variable width fonts<a class="headerlink" href="#adding-custom-variable-width-fonts" title="Permalink to this headline">¶</a></h3>
 <p>The font code is converted from adafruit&#8217;s graphics library and uses &#8216;1.1&#8217; style fonts.
 If you look at the <a class="reference external" href="https://github.com/oshwabadge2018/micropython/blob/139d93fc9cd86cd22e1443fbdbd4c23feba97161/ports/esp32/modules/G_FreeSans24pt7b.py">Free-Sans Font</a> example you can see that it is a direct conversion of one of these font files containing a charecter array of bitmap data and a array of glyph data.</p>
-<dl class="docutils">
-<dt>Python Example::</dt>
-<dd><p class="first">first_char = 0x20
-last_char = 0x7e
-y_advance = 56</p>
-<dl class="last docutils">
-<dt>Glyphs = [</dt>
-<dd><p class="first">[     0,   0,   0,  12,    0,    1 ],   # 0x20 &#8216; &#8216;
-[     0,   4,  34,  16,    6,  -33 ],   # 0x21 &#8216;!&#8217;
-[    17,  11,  12,  16,    2,  -32 ],   # 0x22 &#8216;&#8221;&#8217;</p>
-<p>[snip]</p>
-<p class="last">Bitmaps=b&#8217;xFFxFFxFFxFFxFFxFFxFFxFFxFFxFFx76x66x66x00x0FxFFxFFxF1xFEx3Fx</p>
-</dd>
-</dl>
-</dd>
-</dl>
+<p>Python Example:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">first_char</span> <span class="o">=</span> <span class="mh">0x20</span>
+<span class="n">last_char</span> <span class="o">=</span> <span class="mh">0x7e</span>
+<span class="n">y_advance</span> <span class="o">=</span> <span class="mi">56</span>
+
+<span class="n">Glyphs</span> <span class="o">=</span> <span class="p">[</span>
+  <span class="p">[</span>     <span class="mi">0</span><span class="p">,</span>   <span class="mi">0</span><span class="p">,</span>   <span class="mi">0</span><span class="p">,</span>  <span class="mi">12</span><span class="p">,</span>    <span class="mi">0</span><span class="p">,</span>    <span class="mi">1</span> <span class="p">],</span>   <span class="c1"># 0x20 &#39; &#39;</span>
+  <span class="p">[</span>     <span class="mi">0</span><span class="p">,</span>   <span class="mi">4</span><span class="p">,</span>  <span class="mi">34</span><span class="p">,</span>  <span class="mi">16</span><span class="p">,</span>    <span class="mi">6</span><span class="p">,</span>  <span class="o">-</span><span class="mi">33</span> <span class="p">],</span>   <span class="c1"># 0x21 &#39;!&#39;</span>
+  <span class="p">[</span>    <span class="mi">17</span><span class="p">,</span>  <span class="mi">11</span><span class="p">,</span>  <span class="mi">12</span><span class="p">,</span>  <span class="mi">16</span><span class="p">,</span>    <span class="mi">2</span><span class="p">,</span>  <span class="o">-</span><span class="mi">32</span> <span class="p">],</span>   <span class="c1"># 0x22 &#39;&quot;&#39;</span>
+
+  <span class="p">[</span><span class="n">snip</span><span class="p">]</span>
+
+  <span class="n">Bitmaps</span><span class="o">=</span><span class="sa">b</span><span class="s1">&#39;</span><span class="se">\xFF\xFF\xFF\xFF\xFF\xFF\xFF\xFF\xFF\xFF\x76\x66\x66\x00\x0F\xFF\xFF\xF1\xFE\x3F</span><span class="s1">\x</span>
+</pre></div>
+</div>
 <p><a class="reference external" href="https://github.com/adafruit/Adafruit-GFX-Library/blob/master/Fonts/FreeSans24pt7b.h">Source C file for comparison</a></p>
 </div>
 </div>

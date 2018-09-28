@@ -194,6 +194,7 @@ The font code is converted from adafruit's graphics library and uses '1.1' style
 If you look at the `Free-Sans Font <https://github.com/oshwabadge2018/micropython/blob/139d93fc9cd86cd22e1443fbdbd4c23feba97161/ports/esp32/modules/G_FreeSans24pt7b.py>`_ example you can see that it is a direct conversion of one of these font files containing a charecter array of bitmap data and a array of glyph data.
 
 Python Example::
+
 	first_char = 0x20
 	last_char = 0x7e
 	y_advance = 56
