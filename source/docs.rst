@@ -203,7 +203,7 @@ Python Example::
 	  [     0,   4,  34,  16,    6,  -33 ],   # 0x21 '!'
 	  [    17,  11,  12,  16,    2,  -32 ],   # 0x22 '"'
 	  
-	  ....
+	  [snip]
 	  
 	  Bitmaps=b'\xFF\xFF\xFF\xFF\xFF\xFF\xFF\xFF\xFF\xFF\x76\x66\x66\x00\x0F\xFF\xFF\xF1\xFE\x3F\x
 	 
@@ -213,7 +213,7 @@ Source C file::
 	  0x66, 0x00, 0x0F, 0xFF, 0xFF, 0xF1, 0xFE, 0x3F, 0xC7, 0xF8, 0xFF, 0x1F,
 	  0xE3, 0xFC, 0x7F, 0x8F, 0xF1, 0xEC, 0x19, 0x83, 0x30, 0x60, 0x00, 0x70,
 	
-	...
+	[snip]
 	
 	const GFXglyph FreeSans24pt7bGlyphs[] PROGMEM = {
 	  {     0,   0,   0,  12,    0,    1 },   // 0x20 ' '
@@ -221,7 +221,7 @@ Source C file::
 	  {    17,  11,  12,  16,    2,  -32 },   // 0x22 '"'
 	  {    34,  24,  33,  26,    1,  -31 },   // 0x23 '#'
 	  
-	  ...
+	  [snip]
 	  
 	  const GFXfont FreeSans24pt7b PROGMEM = {
 	  (uint8_t  *)FreeSans24pt7bBitmaps,
