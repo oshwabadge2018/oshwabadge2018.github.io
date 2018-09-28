@@ -219,10 +219,8 @@ Source C file::
 	  {     0,   0,   0,  12,    0,    1 },   // 0x20 ' '
 	  {     0,   4,  34,  16,    6,  -33 },   // 0x21 '!'
 	  {    17,  11,  12,  16,    2,  -32 },   // 0x22 '"'
-	  {    34,  24,  33,  26,    1,  -31 },   // 0x23 '#'
-	  
+	  {    34,  24,  33,  26,    1,  -31 },   // 0x23 '#'  
 	  [snip]
-	  
 	  const GFXfont FreeSans24pt7b PROGMEM = {
 	  (uint8_t  *)FreeSans24pt7bBitmaps,
 	  (GFXglyph *)FreeSans24pt7bGlyphs,
