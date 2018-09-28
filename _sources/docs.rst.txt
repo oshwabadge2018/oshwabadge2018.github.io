@@ -184,3 +184,6 @@ You can read the voltage of the AA batteries. Unfortunetly the output of the ADC
 	Voltage = (adc.read()/4096)*3.3
 
 
+Temperature and Humidity footprint
+++++++++++++++++++++++++++++++++++++++
+The board has a footprint for a Si7006-A20 temperature and humidity sensor that can be soldered on and comes up as i2c device 0x40
