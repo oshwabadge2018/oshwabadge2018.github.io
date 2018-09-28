@@ -104,6 +104,7 @@
 <li><a class="reference internal" href="#accelerometer-example">Accelerometer Example</a></li>
 <li><a class="reference internal" href="#e-paper-example">E-paper Example</a></li>
 <li><a class="reference internal" href="#touchpads">Touchpads</a></li>
+<li><a class="reference internal" href="#adc-input-battery-voltage">ADC Input battery voltage</a></li>
 </ul>
 </li>
 </ul>
@@ -330,6 +331,18 @@
   <span class="k">for</span> <span class="n">b</span> <span class="ow">in</span> <span class="n">buttons</span><span class="p">:</span>
   <span class="nb">print</span><span class="p">(</span><span class="n">names</span><span class="p">[</span><span class="n">i</span><span class="p">],</span><span class="n">b</span><span class="o">.</span><span class="n">read</span><span class="p">(),</span><span class="n">end</span><span class="o">=</span><span class="s2">&quot;</span><span class="se">\t</span><span class="s2">&quot;</span><span class="p">)</span>
   <span class="n">i</span><span class="o">+=</span><span class="mi">1</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="adc-input-battery-voltage">
+<h3>ADC Input battery voltage<a class="headerlink" href="#adc-input-battery-voltage" title="Permalink to this headline">¶</a></h3>
+<p>You can read the voltage of the AA batteries. Unfortunetly the output of the ADC is not really linear with lover voltages reading much less then they actually should on the order of 100-300mv. That said, Here is how you can read the voltage:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">machine</span>
+
+<span class="n">adc</span> <span class="o">=</span> <span class="n">machine</span><span class="o">.</span><span class="n">ADC</span><span class="p">(</span><span class="n">machine</span><span class="o">.</span><span class="n">Pin</span><span class="p">(</span><span class="mi">35</span><span class="p">))</span>
+<span class="n">adc</span><span class="o">.</span><span class="n">atten</span><span class="p">(</span><span class="n">adc</span><span class="o">.</span><span class="n">ATTN_11DB</span><span class="p">)</span>
+
+<span class="n">Voltage</span> <span class="o">=</span> <span class="p">(</span><span class="n">adc</span><span class="o">.</span><span class="n">read</span><span class="p">()</span><span class="o">/</span><span class="mi">4096</span><span class="p">)</span><span class="o">*</span><span class="mf">3.3</span>
 </pre></div>
 </div>
 </div>

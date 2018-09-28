@@ -172,3 +172,15 @@ The board has 6 captouch buttons. They return an analog value that correlates wi
 	  i+=1
 
 
+ADC Input battery voltage
++++++++++++++++++++++++++++++++++++++
+You can read the voltage of the AA batteries. Unfortunetly the output of the ADC is not really linear with lover voltages reading much less then they actually should on the order of 100-300mv. That said, Here is how you can read the voltage::
+
+	import machine
+	
+	adc = machine.ADC(machine.Pin(35))
+	adc.atten(adc.ATTN_11DB)
+
+	Voltage = (adc.read()/4096)*3.3
+
+
