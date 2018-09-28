@@ -13,6 +13,8 @@ Your badge is based on an ESP32-wroom-32 module and a GDEH0213B1 e-paper display
 
 If your badge has your name on it it's been pre-configured already. If no name has been set the badge will display the OHS logo.
 
+cool!
+
 
 The Apps Menu
 ------------------
