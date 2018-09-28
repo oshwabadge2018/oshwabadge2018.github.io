@@ -187,3 +187,44 @@ You can read the voltage of the AA batteries. Unfortunetly the output of the ADC
 Temperature and Humidity footprint
 ++++++++++++++++++++++++++++++++++++++
 The board has a footprint for a Si7006-A20 temperature and humidity sensor that can be soldered on and comes up as i2c device 0x40
+
+Adding Custom variable width fonts
+++++++++++++++++++++++++++++++++++++++
+The font code is converted from adafruit's graphics library and uses '1.1' style fonts.
+If you look at the `Free-Sans Font <https://github.com/oshwabadge2018/micropython/blob/139d93fc9cd86cd22e1443fbdbd4c23feba97161/ports/esp32/modules/G_FreeSans24pt7b.py>`_ example you can see that it is a direct conversion of one of these font files containing a charecter array of bitmap data and a array of glyph data.
+
+Python Example::
+	first_char = 0x20
+	last_char = 0x7e
+	y_advance = 56
+
+	Glyphs = [
+	  [     0,   0,   0,  12,    0,    1 ],   # 0x20 ' '
+	  [     0,   4,  34,  16,    6,  -33 ],   # 0x21 '!'
+	  [    17,  11,  12,  16,    2,  -32 ],   # 0x22 '"'
+	  
+	  ....
+	  
+	  Bitmaps=b'\xFF\xFF\xFF\xFF\xFF\xFF\xFF\xFF\xFF\xFF\x76\x66\x66\x00\x0F\xFF\xFF\xF1\xFE\x3F\x
+	 
+Source C file::
+	const uint8_t FreeSans24pt7bBitmaps[] PROGMEM = {
+	  0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0x76, 0x66,
+	  0x66, 0x00, 0x0F, 0xFF, 0xFF, 0xF1, 0xFE, 0x3F, 0xC7, 0xF8, 0xFF, 0x1F,
+	  0xE3, 0xFC, 0x7F, 0x8F, 0xF1, 0xEC, 0x19, 0x83, 0x30, 0x60, 0x00, 0x70,
+	
+	...
+	
+	const GFXglyph FreeSans24pt7bGlyphs[] PROGMEM = {
+	  {     0,   0,   0,  12,    0,    1 },   // 0x20 ' '
+	  {     0,   4,  34,  16,    6,  -33 },   // 0x21 '!'
+	  {    17,  11,  12,  16,    2,  -32 },   // 0x22 '"'
+	  {    34,  24,  33,  26,    1,  -31 },   // 0x23 '#'
+	  
+	  ...
+	  
+	  const GFXfont FreeSans24pt7b PROGMEM = {
+	  (uint8_t  *)FreeSans24pt7bBitmaps,
+	  (GFXglyph *)FreeSans24pt7bGlyphs,
+	  0x20, 0x7E, 56 };
+	  
