@@ -152,6 +152,7 @@ Here is an example of updating the display. there are two init functions for par
 	epd.display_string_at(fb, 0, 20, "ESSID = " + essid, font12, gxgde0213b1.COLORED)
 	epd.display_string_at(fb, 0, 32, "PASSWORD = " + wifipass, font12, gxgde0213b1.COLORED)
 	epd.display_string_at(fb, 0, 44, "IP ADDR = " + ipaddr, font12, gxgde0213b1.COLORED)
+	epd.display_frame(fb)
 
 You can use a 24 point variable width font rendering::
 
