@@ -223,4 +223,4 @@ Python Example::
 
 Additional MicroPython demo apps:
 ++++++++++++++++++++++++++++++++++++++
-MicroPython programs that can run as "apps" on the Open Hardware Summit 2018 badge.  These Python files can be transferred to badge via FTP: `ohs18apps repo <https://github.com/oshwabadge2018/ohs18apps>`
+MicroPython programs that can run as "apps" on the Open Hardware Summit 2018 badge.  These Python files can be transferred to badge via FTP: `ohs18apps repo <https://github.com/oshwabadge2018/ohs18apps>`_
