@@ -113,7 +113,7 @@ Accelerometer Example
 The datasheet for the accelerometer can be `found here <http://www.farnell.com/datasheets/2189770.pdf>`_
 
 Here is Accelerometer sample code::
-	
+
 	import font16
 	import gxgde0213b1
 	import machine
