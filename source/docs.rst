@@ -219,4 +219,8 @@ Python Example::
 	  Bitmaps=b'\xFF\xFF\xFF\xFF\xFF\xFF\xFF\xFF\xFF\xFF\x76\x66\x66\x00\x0F\xFF\xFF\xF1\xFE\x3F\x
 	 
 `Source C file for comparison <https://github.com/adafruit/Adafruit-GFX-Library/blob/master/Fonts/FreeSans24pt7b.h>`_
-	  
+
+
+Additional MicroPython demo apps:
+++++++++++++++++++++++++++++++++++++++
+MicroPython programs that can run as "apps" on the Open Hardware Summit 2018 badge.  These Python files can be transferred to badge via FTP: `ohs18apps repo <https://github.com/oshwabadge2018/ohs18apps>`
