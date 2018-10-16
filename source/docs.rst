@@ -135,6 +135,7 @@ Here is Accelerometer sample code::
         
 	time.sleep(2)
 
+Check out the `Accelerometer demo app <https://github.com/oshwabadge2018/ohs18apps/blob/master/accelerometer.py>`_ for a continuous display of X, Y, Z on the e-paper display.
 
 E-paper Example
 +++++++++++++++++++++++
@@ -223,4 +224,6 @@ Python Example::
 
 Additional MicroPython demo apps:
 ++++++++++++++++++++++++++++++++++++++
-MicroPython programs that can run as "apps" on the Open Hardware Summit 2018 badge.  These Python files can be transferred to badge via FTP: `ohs18apps repo <https://github.com/oshwabadge2018/ohs18apps>`_
+MicroPython programs that can run as "apps" on the Open Hardware Summit 2018 badge.  These Python files can be transferred to badge via FTP: `ohs18apps repo <https://github.com/oshwabadge2018/ohs18apps>`_.  
+
+Current available apss include `Magic 8-Ball game <https://github.com/oshwabadge2018/ohs18apps/blob/master/magic8ball.py>`_ and `Accelerometer demo <https://github.com/oshwabadge2018/ohs18apps/blob/master/accelerometer.py>`_.
