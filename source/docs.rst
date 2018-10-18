@@ -135,6 +135,8 @@ Here is Accelerometer sample code::
         
 	time.sleep(2)
 
+**Warning:** Make sure that R12 and R13 are populated. These 2.2K Ohm resistors are required for the I2C bus to work. More information is available in this `OSH Park blog post <http://blog.oshpark.com/2018/10/18/open-hardware-summit-badge-accelerometer-demo/>`_.
+
 Check out the `Accelerometer demo app <https://github.com/oshwabadge2018/ohs18apps/blob/master/accelerometer.py>`_ for a continuous display of X, Y, Z on the e-paper display.
 
 E-paper Example
